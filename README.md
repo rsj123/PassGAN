@@ -44,12 +44,12 @@ python train.py --output-dir output --training-data data/train.txt
 
 ### Generation
 
-This example uses Brannon Dorsey's pretrained model to generate 1,000,000 passwords:
+This example uses a model you have trained to generate 1,000,000 passwords:
 
 ```bash
 python sample.py \
-	--input-dir pretrained \
-	--checkpoint pretrained/checkpoints/195000.ckpt \
+	--input-dir $YOUR_OUTPUT \
+	--checkpoint $YOUR_OUTPUT/checkpoints/$YOUR_CHECKPOINT.ckpt \
 	--output gen_passwords.txt \
 	--batch-size 1024 \
 	--num-samples 1000000
