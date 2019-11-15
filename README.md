@@ -58,4 +58,4 @@ python sample.py \
 ## Caveats
 
 * This PassGAN implementation hardcodes the use of the NCHW format (for CuDNN) in a lot of places in `tflib/`, which is not supported on CPU (where it should be NHWC instead). Until this is patched to change the data format for CPU, you will need a GPU for training.
-* Loading datasets for training will now assume that you are using UTF-8 for your dataset when running with Python 3.
+* Loading datasets for training will now assume that you are using UTF-8 for your dataset when running with Python 3. Note that many older dictionaries, such as `rockyou.txt`, are in `ISO-8859-1`. You can use `iconv` to transform them (e.g. `iconv -f iso-8859-1 -t UTF-8 trainingdata/rockyou.txt > trainingdata/rockyou.utf8.txt`).
