@@ -5,6 +5,7 @@ I edit some code and change the version of the Dependency. Now it can run :)
 
 Here are the info of the project(edited)
 
+[中文版(more)](CN_README.md）
 
 # PassGAN
 
