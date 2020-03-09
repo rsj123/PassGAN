@@ -1,3 +1,11 @@
+# The project
+
+I tried many Repository, but most of the code is out date. Some of them even can't run :(
+I edit some code and change the version of the Dependency. Now it can run :)
+
+Here are the info of the project(edited)
+
+
 # PassGAN
 
 This is a fork of [brannondorsey's implementation](https://github.com/brannondorsey/PassGAN) of [PassGAN](https://arxiv.org/abs/1709.00440), a generative adversarial network built to make passwords. The repo was slightly out of date, relying on CUDA 8.0 and Tensorflow 1.4, as well as missing some dependencies that made it easy to train and run in 2019. View [the original documentation at README.md.old](README.md.old) for more information on this GAN.
@@ -19,13 +27,13 @@ pip install -r requirements.txt
 You will then need to install the correct GPU acceleration package. For ROCm, use:
 
 ````bash
-pip install tensorflow-rocm==1.15.0
+pip install tensorflow==1.14.0
 ````
 
 For NVIDIA/CUDA, use:
 
 ````bash
-pip install tensorflow-gpu==1.15.0
+pip install tensorflow-gpu==1.14.0
 ````
 
 ## Quick start
