@@ -5,7 +5,6 @@
 
 下面有更多关于此项目的信息（有修改）
 
-
 # PassGAN
 
 这是一个[brannondorsey's implementation](https://github.com/brannondorsey/PassGAN)  [PassGAN](https://arxiv.org/abs/1709.00440)的分支 PassGAN是一个能够生成密码的GAN网络，但是他的代码有些过时了，我进行了一些更改
@@ -15,9 +14,9 @@
 
 我只对原项目分支的分支进行了一些修改，让他能运行（1.15.0目前被弃用了）
 
-## Installation & Prerequisites
+## 安装 & 准备
 
-To install a CPU-only PassGAN and basic dependencies, run:
+使用如下命令以安装一个只使用CPU的PassGAN和基础依赖：
 
 ````bash
 virtualenv venv
@@ -25,25 +24,25 @@ source venv/bin/activate
 pip install -r requirements.txt
 ````
 
-You will then need to install the correct GPU acceleration package. For ROCm, use:
+你需要安装 GPU 对应的加速包。对于 ROCm，使用如下命令：
 
 ````bash
 pip install tensorflow==1.14.0
 ````
 
-For NVIDIA/CUDA, use:
+对于 NVIDIA/CUDA，使用如下命令：
 
 ````bash
 pip install tensorflow-gpu==1.14.0
 ````
 
-## Quick start
+## 快速启动
 
-You can train your own model based upon your password corpus. The `pretrained` model has been deleted from this repository as it contains Python 2.x `pickle` data that is incompatible with Python 3. Training with large data sets will take quite some time with a reasonably fast GPU.
+你可以根据你的密码语料库来训练你自己的模型。`pretrained` 模型已从此存储库中删除，因为它含有与 Python3 不兼容的 Python2.x `pickle` 数据。使用大型数据集进行培训需要花费相当长的时。，当然，使用 GPU加速 速度相当快。 
 
-### Training
+### 训练
 
-From the original `README.md.old`:
+来自于原始的 `README.md.old`:
 
 ```bash
 # train for 200000 iterations, saving checkpoints every 5000
@@ -51,9 +50,9 @@ From the original `README.md.old`:
 python train.py --output-dir output --training-data data/train.txt
 ```
 
-### Generation
+### 生成
 
-This example uses a model you have trained to generate 1,000,000 passwords:
+此示例使用经过训练的模型生成 1000000 个密码： 
 
 ```bash
 python sample.py \
@@ -64,7 +63,8 @@ python sample.py \
 	--num-samples 1000000
 ```
 
-## Caveats
+## 注意事项
 
-* This PassGAN implementation hardcodes the use of the NCHW format (for CuDNN) in a lot of places in `tflib/`, which is not supported on CPU (where it should be NHWC instead). Until this is patched to change the data format for CPU, you will need a GPU for training.
-* Loading datasets for training will now assume that you are using UTF-8 for your dataset when running with Python 3. Note that many older dictionaries, such as `rockyou.txt`, are in `ISO-8859-1`. You can use `iconv` to transform them (e.g. `iconv -f iso-8859-1 -t UTF-8 trainingdata/rockyou.txt > trainingdata/rockyou.utf8.txt`).
+* PassGAN在实现 `tflib/` 中的很多硬编码的地方使用 NCHW 格式（用于 CuDNN ），这在 CPU 上是不受支持的（如果需要支持，则应使用 NHWC ）。在修改成 CPU 的数据格式之前，您需要 GPU 来进行训练。
+
+* 现在，在使用Python 3运行数据集时，我们假定您使用 UTF-8 作为训练所需装载的数据集的编码。请注意，许多较旧的字典，如 `rockyou.txt` ，都使用的为 `ISO-8859-1` 编码。您可以使用 `iconv` 来转换它们（例如 `iconv -f iso-8859-1 -t UTF-8 trainingdata/rockyou.txt > trainingdata/rockyou.utf8.txt`）。
