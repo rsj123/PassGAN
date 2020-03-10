@@ -13,7 +13,7 @@ This is a fork of [brannondorsey's implementation](https://github.com/brannondor
 
 ## Modifications
 
-No modifications have been made to the underlying network implementation other than optimisation and refactoring for Python 3.x and TensorFlow 1.15.0, which makes it compatible with [tensorflow-rocm](https://rocm.github.io/tensorflow.html) and tensorflow-gpu.
+No modifications have been made to the underlying network implementation other than optimisation and refactoring for Python 3.x and TensorFlow 1.14.0, which makes it compatible with [tensorflow-rocm](https://rocm.github.io/tensorflow.html) and tensorflow-gpu.
 
 ## Installation & Prerequisites
 
